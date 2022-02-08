@@ -17,8 +17,11 @@
       <h2>Présentation des membres du groupe</h2>
         
         <div class="container"><br>
-          Notre groupe est composé de 3 personnes provenant de la formation M1 MIAGE de l'université côte d'Azur. Madame ELALAOUI Hasnaa est étudiant alternante dans une boîte *INSERER SPEECH* 
-          et vient de *INSERER SPEECH*. Madame CHENG Wen-Miin fait également partie du projet, *INSERER SPEECH*. Enfin, Monsieur DELMARE Thomas est alternant chez Thales et était auparavant en L3 MIAGE
+          Notre groupe est composé de 3 personnes provenant de la formation M1 MIAGE de l'université côte d'Azur. 
+          ELALAOUI Hasnaa est étudiant alternante dans une boîte *INSERER SPEECH* 
+          et vient de *INSERER SPEECH*. 
+          CHENG Wen-Miin fait également partie du projet, *INSERER SPEECH*. 
+          Enfin, DELMARE Thomas est alternant chez Thales et était auparavant en L3 MIAGE
           ainsi qu'en BTS SIO. 
         </div><br>
 
@@ -27,9 +30,34 @@
         <img src="https://imgur.com/XUNpVuX">
 
         <div class="container">
-          Notre sujet porte sur la plateforme de streaming Netflix. Cette plateforme a été crée en  2008 et n'a cessé de se développer pour finalement devenir la plateforme de streaming la plus connue mondialement.
-          Notre jeu de données est composé de près de 9000 données, toutes composées avec la même structure. Chaque occurence est définie comme tel :<br><br>
+          Notre sujet s'intitule "  Quelques considerations sur Netflix " et porte sur les résultats publiés par la plateforme de streaming Netflix. <br>
+          Cette plateforme a été crée en  2008 et n'a cessé de se développer pour finalement devenir la plateforme de streaming la plus connue mondialement.<br>
           
+          Le but de l'étude du jeu de données fourni sur le site Kaggle.com est d'analyser la répartition des sorties du catalogue suivant deux jeux de données tirés 
+          du jeu de donnée précédemment cités. L'un regroupera les programmes de Netflix sorties entre 2008 et 2020 
+          et l'autre regroupera les programmes sorties en 2021.<br><br>
+
+          Ces données nous permettront de répondre à plusieurs questions concernant l'évolution de Netflix au fil des années et plus particulièrement deux données.<br>
+          Ces questions sont les suivantes : <br>
+          <li>
+            Est-ce que c’est vrai que le temps moyen entre la sortie du film et son ajout au carnet Netflix s’est
+            raccourci ?</li>
+            <li>A votre avis quelle est la cause de la tendance que vous remarquez au point précédent ? <br>
+            Proposez une solution pour pouvoir donner une reponse plus réaliste au point 1) et refaites les calculs en ce sens.<br></li>
+          <li>Est-ce que c’est vrai que la proportion de show télévisés qui sont mis au programme a considérablement
+            augmenté par rapport aux autres programmes (films, séries) ?<br></li>
+          <li>Même question que la précédente mais en prenant en compte la durée en minutes.
+          </li>
+          Tout d'abord, nous analyserons l'évolution du temps moyen entre la sortie du programme
+          en salle et son ajout sur la plateforme. Nous verrons ensuite l'évolution de la proportion de programmes télé par rapport à la totalité du catalogue.
+          Nous présenterons enfin des schémas explicatifs des résultats. 
+
+        </div><br><br>
+
+      <h2>Descriptif des données utilisées</h2><br>
+      
+        <div class="container">
+          Notre jeu de données est composé de près de 9000 données, toutes composées avec la même structure. Chaque occurence est définie comme tel :<br><br>
           <ul style="text-align: left">
             <li>Un identifiant</li>
             <li>Un type de programme (film ou sérié télé)</li>
@@ -43,25 +71,32 @@
             <li>Les catégories dans lequel le programme est listé</li>
             <li>Une description</li><br>
           </ul>
-
-          Le but de ce dossier est d'analyser la répartition des sorties du catalogue suivant deux jeux de données tirés du jeu de donnée précédemment cités. L'un regroupera les programmes de Netflix sorties entre 2008 et 2020 
-          et l'autre regroupera les programmes sorties en 2021.<br><br>
-
-          Ces données nous permettront de répondre à plusieurs questions concernant l'évolution de Netflix au fil des années et plus particulièrement deux données. Tout d'abord, nous analyserons l'évolution du temps moyen entre la sortie du programme
-          en salle et son ajout sur la plateforme. Nous verrons ensuite l'évolution de la proportion de programmes télé par rapport à la totalité du catalogue.
-
-        </div><br><br>
-
-      <h2>Descriptif des données utilisées</h2><br>
-      
-        <div class="container">
-          TEst
+          Nous avons séparé ce jeu de données en deux échantillons H et A. L'échantillon H représente toutes les données 
+          collectées de 2008 à 2020, le A étant les données de 2021. 
         </div><br>
       
       <h2>Méthodologie suivie pour répondre aux questions</h2><br>
         
         <div class="container">
-          TEst    
+         Afin de répondre aux questions, nous avons tout d'abord procédé au pré-traitement du dataset en supprimant 
+         les valeurs NA ainsi que les données aberrantes (les différences négatives à titre d'exemple)
+         puis nous avons séparé les données en deux datasets : H et A, selon les années d'ajout du film ou de la série sur
+         Netflix comme précisé précédemment.<br>
+         Ensuite nous avons procédé par question. Pour la première question, 
+         une étude d'hypothèse a été faite. En effet, nous avons émis l'hypothèse
+         que le temps moyen entre la sortie d'un film et son ajout au carnet Netflix s'est raccourci. 
+         Nous avons ainsi procédé en calculant
+         la moyenne de la différence entre la date de sortie d'un film ou d'une serie et celle de son ajout sur la plateforme, 
+         et ce pour les deux échantillons H et A. Puis en calculant l'écart-type et le T observation, 
+         nous avons ainsi pu obtenir des résultats.<br>
+         Pour la seconde question, une étude de corrélation a été réalisée. En effet, nous avons émis l'hypothèse que le résultat de la 
+         première question était dû à la production de plus de film/séries par Netflix. <br>
+         La troisième question a consisté en un teste de proportion. L'hypothèse étant que
+         la proportion de show télévisés qui sont mis au programme a considérablement augmenté par rapport aux autres programmes, il s'agissait donc 
+         de calculer ces proportions pour nos deux échantillons et d'en déduire le résultat souhaité. <br>
+         Finalement la quatrième et dernière question revient à faire la même étude que la précédente en considérant la durée de films et séries en plus.
+         Ainsi, les durées de séries étant répertoriées en saisons, nous avons supposé qu'un saison est composée de 12 épisodes et qu'un épisodes
+         dure 30 min, puis avons réalisé la conversion nécessaire en minutes pour chaque série. 
         </div><br>
         
       <h2>Les résultats obtenus</h2><br>
