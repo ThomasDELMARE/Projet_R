@@ -17,24 +17,25 @@
       <h2>Présentation des membres du groupe</h2>
         
         <div class="container"><br>
-          Notre groupe est composé de 3 personnes provenant de la formation M1 MIAGE de l'université côte d'Azur.           
-          <li>CHENG Wen-Miin : étudiante alternante à Enedis. </li>
-          <li>DELMARE Thomas : étudiant alternant à Thales. </li>
-          <li>ELALAOUI Hasnaa : étudiante alternante à Convers Télémarketing.</li>
+          Notre groupe est composé de 3 personnes provenant de la formation M1 MIAGE de l'Université Côte d'Azur.           
+          <li> <b> CHENG Wen-Miin </b> : étudiante alternante chez Enedis. </li>
+          <li> <b> DELMARE Thomas </b> : étudiant alternant chez Thales. </li>
+          <li> <b> ELALAOUI Hasnaa </b> : étudiante alternante chez Convers Télémarketing.</li>
+          Nous avons tous les trois travaillé ensemble sur tout le projet, que ce soit les statisques, les graphiques ou encore ce présent rapport.
         </div><br>
 
       <h2>Descriptif du sujet et de ses finalités</h2><br>
 
         <div class="container">
-          Notre sujet s'intitule "  Quelques considerations sur Netflix " et porte sur les résultats publiés par la plateforme de streaming Netflix. <br>
+          Notre sujet s'intitule "  <b>Quelques considérations sur Netflix</b> " et porte sur les résultats publiés par la plateforme de streaming Netflix. <br>
           Cette plateforme a été créée en  2008 et n'a cessé de se développer pour finalement devenir la plateforme de streaming la plus connue mondialement.<br>
           
-          Le but de l'étude du jeu de données fourni sur le site Kaggle.com est d'analyser la répartition des sorties du catalogue suivant deux jeux de données tirés 
-          du jeu de données précédemment cité. L'un regroupera les programmes de Netflix sortis entre 2008 et 2020 
-          et l'autre regroupera les programmes sortis en 2021.<br><br>
-
-          Ces données nous permettront de répondre à plusieurs questions concernant l'évolution de Netflix au fil des années et plus particulièrement deux données.<br>
-          Ces questions sont les suivantes : <br>
+          Le but de l'étude est d'analyser la répartition des sorties du catalogue Netflix suivant deux échantillons provenant 
+          du jeu de données fourni par le site Kaggle. L'un regroupera les programmes de Netflix sortis <b> entre 2008 et 2020 </b>
+          et l'autre regroupera les programmes sortis <b> en 2021 </b>.<br>
+          Ces données nous permettront de répondre à plusieurs questions concernant l'évolution de Netflix au fil des années et plus particulièrement deux données.<br><br>
+          
+          <u> Ces questions sont les suivantes : </u> <br>
           <li>
             Est-ce que c’est vrai que le temps moyen entre la sortie du film et son ajout au carnet Netflix s’est
             raccourci ?</li>
@@ -43,7 +44,7 @@
           <li>Est-ce que c’est vrai que la proportion de show télévisés qui sont mis au programme a considérablement
             augmenté par rapport aux autres programmes (films, séries) ?<br></li>
           <li>Même question que la précédente mais en prenant en compte la durée en minutes.
-          </li>
+          </li> <br>
           Tout d'abord, nous analyserons l'évolution du temps moyen entre la sortie du programme
           en salle et son ajout sur la plateforme. Nous verrons ensuite l'évolution de la proportion de programmes télé (ou séries) par rapport à la totalité du catalogue.
           Nous présenterons enfin des schémas explicatifs des résultats. 
@@ -53,10 +54,11 @@
       <h2>Descriptif des données utilisées</h2><br>
       
         <div class="container">
-          Notre jeu de données est composé de près de 9000 données, toutes composées avec la même structure. Chaque occurence est définie comme tel :<br><br>
-          
+          Notre jeu de données est composé de près de 9000 données, toutes composées avec la même structure. <br><br>
+
+          <u> Chaque occurence est définie comme tel : </u> <br>
             <li>Un identifiant</li>
-            <li>Un type de programme (film ou sérié télé)</li>
+            <li>Un type de programme (film ou sérié)</li>
             <li>Un titre</li>
             <li>Un réalisateur</li>
             <li>Le casting</li>
@@ -74,40 +76,45 @@
       <h2>Méthodologie suivie pour répondre aux questions</h2><br>
         
         <div class="container">
-         Afin de répondre aux questions, nous avons tout d'abord procédé au pré-traitement du dataset en supprimant 
-         les valeurs NA ainsi que les données aberrantes (les différences négatives à titre d'exemple)
-         puis nous avons séparé les données en deux datasets : H et A, selon les années d'ajout du film ou de la série sur
-         Netflix comme précisé précédemment.<br>
-         Ensuite nous avons procédé par question. Pour la première question, 
-         une étude d'hypothèse a été faite. En effet, nous avons émis l'hypothèse
+         Afin de répondre aux questions, nous avons tout d'abord procédé au <b>pré-traitement</b> du dataset. La date d'ajout a été transformée pour 
+         ne garder que les années. De plus, les <b>valeurs NA ainsi que les données aberrantes </b>(les différences négatives à titre d'exemple)
+         ont été supprimées.Puis, nous avons séparé les données en deux datasets : H et A, selon les années d'ajout du film ou de la série sur
+         Netflix comme précisé précédemment.
+         Ensuite, nous avons procédé par question. <br><br>
+
+         Pour la première question, 
+         un <u>test d'hypothèses</u> a été réalisé. En effet, nous avons émis l'hypothèse
          que le temps moyen entre la sortie d'un film et son ajout au carnet Netflix s'est raccourci. 
-         Nous avons ainsi procédé en calculant
-         la moyenne de la différence entre la date de sortie d'un film ou d'une serie et celle de son ajout sur la plateforme, 
-         et ce pour les deux échantillons H et A. Puis en calculant l'écart-type et le T observation, 
-         nous avons ainsi pu obtenir des résultats.<br>
-         Pour la seconde question, une étude de corrélation a été réalisée. En effet, nous avons émis l'hypothèse que le résultat de la 
-         première question était dû à la production de plus de film/séries par Netflix. <br>
-         La troisième question a consisté en un test de proportion. L'hypothèse étant que
+
+         Pour cela, nous avons calculé la moyenne de la différence entre la date de sortie d'un film ou d'une serie et celle de son ajout sur 
+         la plateforme, et ce pour les deux échantillons H et A. De plus, en calculant l'écart-type et le T observation, 
+         nous avons ainsi pu obtenir des résultats.<br><br>
+
+         Pour la seconde question, un <u> test de corrélation </u> a été réalisé. En effet, nous avons émis l'hypothèse que le résultat de la 
+         première question était dû à la production de plus de film/séries par Netflix. Nous avons réalisé une matrice de corrélations pour 
+         analyser les liens entre les variables numériques<br><br>
+         
+         La troisième question a consisté en un <u> test de proportion</u>. L'hypothèse étant que
          la proportion de show télévisés qui sont mis au programme a considérablement augmenté par rapport aux autres programmes, il s'agissait donc 
-         de calculer ces proportions pour nos deux échantillons et d'en déduire le résultat souhaité. <br>
+         de calculer ces proportions pour nos deux échantillons et d'en déduire le résultat souhaité. <br><br>
+
          Finalement la quatrième et dernière question revient à faire la même étude que la précédente en considérant la durée de films et séries en plus.
-         Ainsi, les durées de séries étant répertoriées en saisons, nous avons supposé qu'un saison est composée de 12 épisodes et qu'un épisodes
+         Ainsi, les durées de séries étant répertoriées en saisons, nous avons supposé qu'une saison est composée de 12 épisodes et qu'un épisode
          dure 30 min, puis avons réalisé la conversion nécessaire en minutes pour chaque série. 
         </div><br>
         
       <h2>Les résultats obtenus</h2><br>
       
         <div class="container">
-          Grâce aux méthodologies utilisées citées précédemment, nous avons pu tirer les conclusions suivantes : 
+          Grâce aux méthodologies utilisées citées précédemment, nous avons pu tirer les conclusions suivantes :  <br><br>
             <li>Le temps moyen entre la sortie d'un film et son ajout sur Netflix ne s'est pas raccourci. </li>       
               <blockquote class="imgur-embed-pub" lang="en" data-id="XUNpVuX"><a href="https://imgur.com/XUNpVuX"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
               <blockquote class="imgur-embed-pub" lang="en" data-id="0XcV15s"><a href="https://imgur.com/0XcV15s"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-            <li>Ceci n'est pas dû au fait que Netflix ait produit plus de films.</li>
+            <li>Il n'y a pas de corrélation entre la date de sorti du film et sa date d'ajout au catalogue Netflix.</li>
               <blockquote class="imgur-embed-pub" lang="en" data-id="ZUUc0es"><a href="https://imgur.com/ZUUc0es"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-            <li>La proportion de show télévisés qui sont mis au programme a considérablement augmenté par rapport aux autres programmes.</li>
+            <li>La proportion de show télévisés qui sont mis au programme n'a considérablement pas augmenté par rapport aux autres programmes.</li>
               <blockquote class="imgur-embed-pub" lang="en" data-id="0bTl7AN"><a href="https://imgur.com/0bTl7AN"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-            <li>La proportion de la durée des show télévisés qui sont mis au programme a considérablement augmenté par rapport aux autres 
-            programmes.</li>
+            <li>La proportion de la durée des show télévisés qui sont mis au programme n'a pas considérablement augmenté par rapport aux autres programmes.</li>
               <blockquote class="imgur-embed-pub" lang="en" data-id="e3nDfta"><a href="https://imgur.com/e3nDfta"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
               <blockquote class="imgur-embed-pub" lang="en" data-id="sdRguom"><a href="https://imgur.com/sdRguom"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
     
