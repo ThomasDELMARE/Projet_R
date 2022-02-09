@@ -64,7 +64,6 @@ Moyenne_2019
 Moyenne_2020
 Moyenne_2021
 
-
 # On crée un nouveau dataframe avec les années non-dupliquées
 dfParAnnee = newdata$date_added
 dfParAnnee <- data.frame(dfParAnnee)
@@ -78,10 +77,6 @@ tab_moyenne = matrix(c(Moyenne_2008,Moyenne_2009,Moyenne_2010,Moyenne_2011,Moyen
 dfParAnnee$moyenne_diff = tab_moyenne
 View(dfParAnnee)
 summary(dfParAnnee)
-
-
-#group = dfParAnnee$dfParAnnee
-#barplot(dfParAnnee$moyenne_diff,names.arg = group) 
 
 plot(dfParAnnee$dfParAnnee,dfParAnnee$moyenne_diff,
      xlab="Années", ylab = "Années de différence",
@@ -177,7 +172,7 @@ summary(dfParAnnee2)
 #graphique evolution diff des années de différence
 plot(dfParAnnee2$dfParAnnee,dfParAnnee2$moyenne_diff,
      xlab="Années", ylab = "Années de différence",
-     main="Différence entre date de sortie et date d'ajout sur Netflix en années (sans valeurs aberrantes)")
+     main="Moyenne des différences entre date de sortie et d'ajout sur Netflix par année (sans valeurs aberrantes)")
 
 
 ################
@@ -188,7 +183,20 @@ plot(dfParAnnee2$dfParAnnee,dfParAnnee2$moyenne_diff,
 # au programme a considerablement augmenté par rapport aux autres programmes 
 # (films, séries) ?
 
-# Qst 3 v2
+# graph proportion
+# avec le traitement des données
+netflix<-newdata2
+netflix%>%
+  group_by(date_added, type)%>%
+  summarise(n=n())%>%
+  ggplot(aes(date_added, color=type))+
+  geom_density(aes(fill=type), alpha=2/10)+
+  theme_test()+
+  labs(
+    x='Date',
+    y='Proportion',
+    title='Proportion de shows télévisés comparés aux films')
+
 
 # 2008
 Compte_films_2008 <- sum(newdata_2008$type=="Movie")
@@ -233,7 +241,6 @@ Compte_series_2020 <- sum(newdata_2020$type=="TV Show")
 Compte_films_2021 <- sum(newdata_2021$type=="Movie")
 Compte_series_2021 <- sum(newdata_2021$type=="TV Show")
 
-
 Moyenne_series_2008 <- (Compte_series_2008/(Compte_films_2008+Compte_series_2008))/100
 Moyenne_series_2009 <- (Compte_series_2009/(Compte_films_2009+Compte_series_2009))/100
 Moyenne_series_2010 <- (Compte_series_2010/(Compte_films_2010+Compte_series_2010))/100
@@ -263,7 +270,6 @@ tab_moyenne = matrix(c(Moyenne_series_2008,Moyenne_series_2009,Moyenne_series_20
 dfParAnnee_2$proportion_series = tab_moyenne
 View(dfParAnnee_2)
 summary(dfParAnnee_2)
-
 
 plot(dfParAnnee_2$dfParAnnee_2,dfParAnnee_2$proportion_series,
      xlab="Années", ylab = "Proportion de séries",

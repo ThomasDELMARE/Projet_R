@@ -21,10 +21,10 @@ Moyenne_A
 
 ################################# Hypothèses ################################### 
 # H0 : le temps moyen entre la sortie du film et son ajout au carnet Netflix 
-#       s'est raccourci (tps<moy) temps < 4,47 
+#       s'est raccourci (tps<=moy) temps <= 5.34 
 # H1 : le temps moyen entre la sortie du film et son ajout au carnet Netflix 
-#       ne s'est pas raccourci (tps>=moy)
-#################################################################################
+#       ne s'est pas raccourci (tps>moy) temps > 5.34
+################################################################################
 
 # calcul des moyennes des différences pour échantillons H et A 
 H_films_moy = mean(H_films$difference)
@@ -39,23 +39,25 @@ H_films_ec
 A_films_ec 
 
 # On calcule le T obs
-T = (A_films_moy - H_films_moy ) / (A_films_ec / sqrt(count(A_films)))
+T = (A_films_moy - H_films_moy) / (A_films_ec / sqrt(count(A_films)))
 T # 7.307045
 
 # on fixe alpha = 5% 
 
 # TEST D'HYPOTHESES
-t.test(
-  A_films$difference,
-  H_films$difference,
-  alternative = "less",
-  mu = A_films_moy,
-  var.equal = FALSE,
-  paired = FALSE,
-  conf.level = 0.95
-)
+# t.test(
+#   A_films$difference,
+#   H_films$difference,
+#   alternative = "less",
+#   mu = H_films_moy,
+#   var.equal = FALSE,
+#   paired = FALSE,
+#   conf.level = 0.95
+# )
 
-#p-value = 2.2e-16 < 0.05 donc on rejette H0 et on conclut H1
+t.test(A_films$difference, H_films$difference, alternative = "greater")
+
+#p-value = 1.146e-11 < 0.05 donc on rejette H0 et on conclut H1
 # Donc le temps moyen entre la sortie du film et son ajout au carnet Netflix ne s'est pas raccourci
 
 
@@ -88,7 +90,6 @@ summary(newdata2)
 newdata2_num <- newdata2[,c(7,8,13)]
 
 #Corrélation des valeurs numériques
-cor(newdata2_num,method = "spearman")
 cor(newdata2_num)
 cor_newdata2_num <- cor(newdata2_num)
 
@@ -111,6 +112,13 @@ cor.test(newdata2$release_year,newdata2$difference) # -0.9839591
 # au programme a considerablement augmenté par rapport aux autres programmes 
 # (films, series) ?
 
+################################# Hypothèses ################################### 
+# H0 : la proportion de show télévisés qui sont mis au programme a considerablement
+#       augmenté par rapport aux autres programmes 
+# H1 : la proportion de show télévisés qui sont mis au programme n'a pas 
+#       considerablement augmenté par rapport aux autres programmes 
+################################################################################
+
 #Calcul des proportions
 propH <- series_H/total_H
 propH
@@ -122,9 +130,9 @@ prop.test(series_A,total_A,p=propH,"greater",correct=FALSE)
 
 # Intervalle [0.3173358 , 1.0000000]
 # p-value = 0.000276
-# probabilité : p = 0.3371162 
+# valeur estimée : p = 0.3371162 
 # Donc p est dans l'intervalle avec 0.000276 d'erreur
-# Ainsi, puisque p-value<0.05 => H0 est vraie
+# Ainsi, puisque p-value < 0.05 => rejet H0 et H1 est vraie
 
 
 ################
@@ -155,9 +163,11 @@ duree_totale_A <- duree_totale_series_A_min + duree_totale_films_A_min
 # TEST DE PROPORTION
 propH_duree <- duree_totale_series_H_min/duree_totale_H
 propH_duree
+propA_duree <- duree_totale_series_A_min/duree_totale_A
+propA_duree
 prop.test(duree_totale_series_A_min,duree_totale_A,p=propH_duree,"greater",correct=FALSE)
 
 # Intervalle [0.7692089 , 1.0000000]
-# probabilité : p = 0.7702484 
-# Ainsi, puisque p-value<0.05 => H0 est vraie
+# valeur estimée : p = 0.7702484 
+# Ainsi, puisque p-value < 0.05 => rejet H0, H1 est vraie
 

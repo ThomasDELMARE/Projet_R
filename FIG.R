@@ -21,27 +21,6 @@
 # point precedent ? Proposez une solution pour pouvoir donner une reponse plus 
 # realiste au point 1) et refaites les calculs en ce sens. 
 
-
-#avec le traitement des données
-netflix<-newdata2
-netflix%>%
-  group_by(date_added, type)%>%
-  summarise(n=n())%>%
-  ggplot(aes(date_added, color=type))+
-  geom_density(aes(fill=type), alpha=2/10)+
-  theme_test()+
-  labs(
-    x='Date',
-    y='Proportion',
-    title='Proportion de shows télévisés comparés aux films')
-
-added_titles_month_hist <- ggplot(mydata, aes(x=mydata$date_added, fill=type)) +
-  theme_bw() +
-  geom_histogram(stat="count", color="black") +
-  labs(x='Date d ajout',y='Nombre de films et séries',title="Distribution of added movies and TV shows by year")
-print(added_titles_month_hist)
-
-
 #matrice de corrélation visuelle grâce à corrplot
 corrplot(
   cor_newdata2_num
@@ -54,6 +33,12 @@ corrplot(
 # 3 - Est-ce que c'est vrai que la proportion de show televises qui sont mis 
 # au programme a considerablement augmenté par rapport aux autres programmes 
 # (films, séries) ?
+
+added_titles_month_hist <- ggplot(mydata, aes(x=mydata$date_added, fill=type)) +
+  theme_bw() +
+  geom_histogram(stat="count", color="black") +
+  labs(x='Date d ajout',y='Nombre de films et séries',title="Distribution of added movies and TV shows by year")
+print(added_titles_month_hist)
 
 
 ################
